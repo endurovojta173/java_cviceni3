@@ -21,4 +21,27 @@ public class TeamLeader extends Employee {
         }
         return false;
     }
+    static public TeamLeader getNewTeamLeader(String name, String surname, String maxNumOfTeamMembers) {
+        int maxNumOfTeamMembersInt = Integer.parseInt(maxNumOfTeamMembers);
+        return new TeamLeader(name, surname, maxNumOfTeamMembersInt);
+    }
+
+    @Override
+    public String getJobDescription() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Jmenuji se ");
+        sb.append(super.getName());
+        sb.append(" ");
+        sb.append(super.getSurname());
+        sb.append("\n");
+        sb.append(super.getJobDescription());
+        sb.append("\n");
+        sb.append("Vedu tyto lidi: ");
+        sb.append('\n');
+        for(int i = 0; i < numOfTeamMembers; i++) {
+            sb.append(teamMembers[i].toString());
+            sb.append("\n");
+        }
+        return sb.toString();
+    }
 }
